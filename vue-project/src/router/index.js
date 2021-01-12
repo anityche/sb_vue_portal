@@ -5,6 +5,7 @@ import store from "../store";
 Vue.use(VueRouter);
 
 const rejectAuthUser = (to, from, next) => {
+  console.log("call rejectAuthUser");
   if (store.state.isLogin === true) {
     //이미 로그인 유저이므로 reject
     alert("이미로긴");
@@ -15,6 +16,7 @@ const rejectAuthUser = (to, from, next) => {
 };
 
 const onlyAuthUser = (to, from, next) => {
+  console.log("call onlyAuthUser");
   if (store.state.isLogin === false) {
     //로그인 이전이면 막음
     alert("로그인 필요");
@@ -33,14 +35,14 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    beforEnter: rejectAuthUser,
+    beforeEnter: rejectAuthUser,
     component: () =>
       import(/* webpackChunkName: "login" */ "../views/Login.vue")
   },
   {
     path: "/mypage",
     name: "mypage",
-    beforEnter: onlyAuthUser,
+    beforeEnter: onlyAuthUser,
     component: () =>
       import(/* webpackChunkName: "mypage" */ "../views/Mypage.vue")
   }

@@ -9,9 +9,6 @@
           >로그인이 완료됨.</v-alert
         >
         <v-card>
-          <v-toolbar flat>
-            <v-toolbar-title>로그인</v-toolbar-title>
-          </v-toolbar>
           <div class="pa-3">
             <v-text-field v-model="email" label="이메일"> </v-text-field>
             <v-text-field v-model="password" type="password" label="패스워드">
